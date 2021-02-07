@@ -1,13 +1,13 @@
 package ru.skillbranch.devintensive
 
+import org.junit.Assert.assertEquals
 import org.junit.Test
-
-import org.junit.Assert.*
 import ru.kravchenko.devintensive.extansion.TimeUtils
 import ru.kravchenko.devintensive.extansion.add
 import ru.kravchenko.devintensive.extansion.format
 import ru.kravchenko.devintensive.extansion.toUserView
 import ru.kravchenko.devintensive.models.*
+import ru.kravchenko.devintensive.utils.Utils
 import java.util.*
 
 /**
@@ -34,7 +34,7 @@ class ExampleUnitTest {
     }
 
     @Test
-    fun test_factory(){
+    fun test_factory() {
         val user1 = User.makeUser("Iha man3")
         val user2 = User.makeUser("Iha man2")
         val user3 = User.makeUser(null)
@@ -50,7 +50,7 @@ class ExampleUnitTest {
     }
 
     @Test
-    fun test_copy(){
+    fun test_copy() {
         val user1 = User.makeUser("Ivan Petrov")
         val user2 = User.makeUser("Vasily Petkevich")
         println("$user1 \n$user2")
@@ -60,7 +60,7 @@ class ExampleUnitTest {
     }
 
     @Test
-    fun test_decomposition(){
+    fun test_decomposition() {
         val user = User.makeUser("Ivan Susanin")
         fun getUserInfo() = user
         val (id, f, l) = getUserInfo()
@@ -70,7 +70,7 @@ class ExampleUnitTest {
     }
 
     @Test
-    fun test_copy2(){
+    fun test_copy2() {
         val user = User.makeUser("Demon Petrov")
 //        val user2 = user.copy(id = "2")
 //        val user2 = user.copy()
@@ -81,40 +81,51 @@ class ExampleUnitTest {
     }
 
     @Test
-    fun test_dateFormate(){
+    fun test_dateFormate() {
         val user1 = User.makeUser("Alen Delon")
         val user2 = user1.copy(lastVisit = Date().add(3, TimeUtils.SECOND))
         val user3 = user2.copy(lastVisit = Date().add(-1, TimeUtils.DAY))
 
-        println("""
+        println(
+            """
             ${user1.lastVisit?.format()}
             ${user2.lastVisit?.format()}
             ${user3.lastVisit?.format()} 
-        """.trimIndent())
+        """.trimIndent()
+        )
     }
 
     @Test
-    fun test_datas_maping(){
+    fun test_datas_maping() {
         val user = User.makeUser("Iha man")
         println(user)
         val userView = user.toUserView()
         println(userView)
     }
 
-
     @Test
-    fun test_abstract_factory(){
+    fun test_abstract_factory() {
         val user = User.makeUser("Ivan Susanin")
-        val txtMessage = BaseMessage.makeMassage(user, Chat("0"), payload = "any text message", type = "text")
-        val imgMessage = BaseMessage.makeMassage(user, Chat("0"), payload = "any image url", type = "image")
+        val txtMessage =
+            BaseMessage.makeMassage(user, Chat("0"), payload = "any text message", type = "text")
+        val imgMessage =
+            BaseMessage.makeMassage(user, Chat("0"), payload = "any image url", type = "image")
 
-        when(imgMessage) {
+        when (imgMessage) {
             is TextMessage -> println("this text message")
             is ImageMessage -> println("this image message")
         }
 
         println(txtMessage.formatMessage())
         println(imgMessage.formatMessage())
+    }
+
+    @Test
+    fun test_Utils() {
+//        val user = User.makeUser("Timoty Petrov")
+        val (name, surname) = Utils.parseFullName("Timoty Petrov")
+        println("$name $surname")
+
     }
 
 
