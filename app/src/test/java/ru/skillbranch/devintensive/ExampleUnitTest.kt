@@ -2,12 +2,15 @@ package ru.skillbranch.devintensive
 
 import org.junit.Assert.assertEquals
 import org.junit.Test
-import ru.kravchenko.devintensive.extansion.TimeUtils
-import ru.kravchenko.devintensive.extansion.add
-import ru.kravchenko.devintensive.extansion.format
-import ru.kravchenko.devintensive.extansion.toUserView
-import ru.kravchenko.devintensive.models.*
-import ru.kravchenko.devintensive.utils.Utils
+import ru.skillbranch.devintensive.extansion.TimeUtils
+import ru.skillbranch.devintensive.extansion.add
+import ru.skillbranch.devintensive.extansion.format
+import ru.skillbranch.devintensive.extansion.toUserView
+import ru.skillbranch.devintensive.models.*
+import ru.skillbranch.devintensive.models.BaseMessage
+import ru.skillbranch.devintensive.models.Chat
+import ru.skillbranch.devintensive.models.ImageMessage
+import ru.skillbranch.devintensive.utils.Utils
 import java.util.*
 
 /**

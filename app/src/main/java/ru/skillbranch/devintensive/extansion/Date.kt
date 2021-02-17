@@ -1,4 +1,4 @@
-package ru.kravchenko.devintensive.extansion
+package ru.skillbranch.devintensive.extansion
 
 
 import java.text.SimpleDateFormat

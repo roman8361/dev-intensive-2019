@@ -1,5 +1,6 @@
-package ru.kravchenko.devintensive.models
+package ru.skillbranch.devintensive.models
 
+import ru.skillbranch.devintensive.models.User
 import java.util.*
 
 class ImageMessage(

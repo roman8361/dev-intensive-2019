@@ -1,5 +1,7 @@
-package ru.kravchenko.devintensive.models
+package ru.skillbranch.devintensive.models
 
+import ru.skillbranch.devintensive.models.TextMessage
+import ru.skillbranch.devintensive.models.User
 import java.util.*
 
 abstract class BaseMessage(
