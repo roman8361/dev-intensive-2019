@@ -1,6 +1,6 @@
-package ru.kravchenko.devintensive.models
+package ru.skillbranch.devintensive.models
 
-import ru.kravchenko.devintensive.utils.Utils
+import ru.skillbranch.devintensive.utils.Utils
 import java.util.*
 
 data class User(
@@ -10,8 +10,8 @@ data class User(
     var avatar: String?,
     var rating: Int = 0,
     var respect: Int = 0,
-    val lastVisit: Date? = Date(),
-    val isOnline: Boolean = false
+    var lastVisit: Date? = Date(),
+    var isOnline: Boolean = false
 ) {
 
     constructor(id: String, firstName: String?, lastName: String?) : this(
@@ -27,17 +27,11 @@ data class User(
 //        println("Hello my name is: $firstName $lastName")
 //    }
 
-//
-
     companion object Factory{
         private var lastId : Int = -1
 
         fun makeUser(fullName:String?): User {
             lastId++
-
-//            val parts: List<String>? = fullName?.split(" ")
-//            val firstName =parts?.getOrNull(0) ?: "empty fields"
-//            val lastName = parts?.getOrNull(1) ?: "empty fields"
             val (firstName, lastName) = Utils.parseFullName(fullName)
             return User(id="$lastId", firstName = firstName, lastName = lastName)
         }

@@ -1,23 +1,34 @@
-package ru.kravchenko.devintensive.utils
+package ru.skillbranch.devintensive.utils
 
 object Utils {
 
-    fun parseFullName(fullName:String?) : Pair<String?, String?> {
-
+    fun parseFullName(fullName: String?): Pair<String?, String?> {
         val parts: List<String>? = fullName?.split(" ")
-        val firstName =parts?.getOrNull(0) ?: "empty fields"
-        val lastName = parts?.getOrNull(1) ?: "empty fields"
+        var firstName = parts?.getOrNull(0) ?: "null"
+        var lastName = parts?.getOrNull(1) ?: "null"
+        if (firstName.isEmpty() || firstName === " ") {
+            firstName = "null"
+        }
 
-//        return Pair(firstName, lastName)
+        if (lastName.isEmpty() || lastName === " ") {
+            lastName = "null"
+        }
+
         return firstName to lastName
     }
 
-    fun transliterations(payload: String, diveder: String = " ") : String {
+    fun transliterations(payload: String, diveder: String = " "): String {
         TODO()
     }
 
     fun toInitials(firstName: String?, lastName: String?): String? {
-        TODO()
+        if (lastName == null && firstName != null) return firstName[0].toUpperCase().toString()
+        if (firstName != null) {
+            if (firstName.isEmpty()) return "null"
+            if (lastName?.isEmpty()!!) return firstName[0].toUpperCase().toString()
+            return firstName[0].toUpperCase().toString() + lastName[0].toUpperCase().toString()
+        }
+        return "null"
     }
 
 }

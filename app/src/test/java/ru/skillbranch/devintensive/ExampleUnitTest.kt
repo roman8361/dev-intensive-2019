@@ -2,12 +2,12 @@ package ru.skillbranch.devintensive
 
 import org.junit.Assert.assertEquals
 import org.junit.Test
-import ru.kravchenko.devintensive.extansion.TimeUtils
-import ru.kravchenko.devintensive.extansion.add
-import ru.kravchenko.devintensive.extansion.format
-import ru.kravchenko.devintensive.extansion.toUserView
-import ru.kravchenko.devintensive.models.*
-import ru.kravchenko.devintensive.utils.Utils
+import ru.skillbranch.devintensive.extansion.TimeUtils
+import ru.skillbranch.devintensive.extansion.add
+import ru.skillbranch.devintensive.extansion.format
+import ru.skillbranch.devintensive.extansion.toUserView
+import ru.skillbranch.devintensive.models.*
+import ru.skillbranch.devintensive.utils.Utils
 import java.util.*
 
 /**
@@ -36,9 +36,11 @@ class ExampleUnitTest {
     @Test
     fun test_factory() {
         val user1 = User.makeUser("Iha man3")
-        val user2 = User.makeUser("Iha man2")
+        val user2 = User.makeUser("Iha")
         val user3 = User.makeUser(null)
-        println("$user1 \n $user2 \n $user3")
+        val user4 = User.makeUser("")
+        val user5 = User.makeUser(" ")
+        println("$user1 \n $user2 \n $user3 \n $user4 \n $user5 ")
     }
 
     @Test
@@ -72,8 +74,6 @@ class ExampleUnitTest {
     @Test
     fun test_copy2() {
         val user = User.makeUser("Demon Petrov")
-//        val user2 = user.copy(id = "2")
-//        val user2 = user.copy()
         val user2 = user
 
         println(user == user2)
@@ -99,8 +99,8 @@ class ExampleUnitTest {
     fun test_datas_maping() {
         val user = User.makeUser("Iha man")
         println(user)
-        val userView = user.toUserView()
-        println(userView)
+//        val userView = user.toUserView()
+//        println(userView)
     }
 
     @Test
@@ -121,12 +121,27 @@ class ExampleUnitTest {
     }
 
     @Test
-    fun test_Utils() {
-//        val user = User.makeUser("Timoty Petrov")
+    fun test_utils() {
         val (name, surname) = Utils.parseFullName("Timoty Petrov")
         println("$name $surname")
-
     }
 
+    @Test
+    fun test_date() {
+        println(Date())
+        println(Date().add(3, TimeUtils.MINUTE))
+        println(Date().format())
+        println(Date().format("HH:mm"))
+    }
+
+    @Test
+    fun test_initial_utils() {
+        println(Utils.toInitials("Don", "JACK"))
+        println(Utils.toInitials("ina", ""))
+        println(Utils.toInitials("", ""))
+        println(Utils.toInitials("", "Jackson"))
+        println(Utils.toInitials(null, ""))
+        println(Utils.toInitials("KK", null))
+    }
 
 }
