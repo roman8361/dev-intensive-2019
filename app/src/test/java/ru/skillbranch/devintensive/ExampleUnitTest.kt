@@ -5,7 +5,6 @@ import org.junit.Test
 import ru.skillbranch.devintensive.extansion.TimeUtils
 import ru.skillbranch.devintensive.extansion.add
 import ru.skillbranch.devintensive.extansion.format
-import ru.skillbranch.devintensive.extansion.toUserView
 import ru.skillbranch.devintensive.models.*
 import ru.skillbranch.devintensive.utils.Utils
 import java.util.*
@@ -67,7 +66,6 @@ class ExampleUnitTest {
         fun getUserInfo() = user
         val (id, f, l) = getUserInfo()
         println("$id, $f, $l")
-
         println("${user.component4()}")
     }
 
