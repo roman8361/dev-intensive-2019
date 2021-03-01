@@ -97,8 +97,6 @@ class ExampleUnitTest {
     fun test_datas_maping() {
         val user = User.makeUser("Iha man")
         println(user)
-//        val userView = user.toUserView()
-//        println(userView)
     }
 
     @Test
