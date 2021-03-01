@@ -13,7 +13,8 @@ abstract class BaseMessage(
 
     companion object AbstractFactory {
         var lastId = -1
-        fun makeMassage(from: User?, chat: Chat, date: Date = Date(), type: String = "text", payload: Any?): BaseMessage {
+        fun makeMassage(from: User?, chat: Chat, date: Date = Date(), type: String = "text", payload: Any?)
+        : BaseMessage {
             lastId++
             return when (type) {
                 "image" -> ImageMessage(

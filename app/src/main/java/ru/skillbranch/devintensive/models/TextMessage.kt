@@ -15,6 +15,4 @@ class TextMessage(
     override fun formatMessage(): String = "id:$id ${from?.firstName} " +
             "${if(isIncome) "получил" else "отправил"} сообщение \"$text\" ${date}"
 
-
-
 }

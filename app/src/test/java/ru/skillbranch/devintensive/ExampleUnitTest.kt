@@ -141,7 +141,7 @@ class ExampleUnitTest {
         println(Utils.toInitials("", ""))
         println(Utils.toInitials("", "Jackson"))
         println(Utils.toInitials(null, ""))
-        println(Utils.toInitials("KK", null))
+        println(Utils.toInitials("KKK", null))
     }
 
 }
